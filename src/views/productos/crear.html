@@ -13,6 +13,26 @@
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre">
         </div>
+    <form action="{{ url_for('crear_producto') }}" method="POST">
+        <div class="form-group">
+            <label for="nombre">descripcion</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion">
+        </div>
+    <form action="{{ url_for('crear_producto') }}" method="POST">
+        <div class="form-group">
+            <label for="nombre">precio_venta</label>
+            <input type="text" class="form-control" id="precio_venta" name="precio_venta">
+        </div>
+    <form action="{{ url_for('crear_producto') }}" method="POST">
+        <div class="form-group">
+            <label for="nombre">precio_compra</label>
+            <input type="text" class="form-control" id="nombre" name="precio_venta">
+        </div>
+    <form action="{{ url_for('crear_producto') }}" method="POST">
+        <div class="form-group">
+            <label for="nombre">estado</label>
+            <input type="text" class="form-control" id="nombre" name="nombre">
+        </div>
         <button type="submit">Guardar</button>
     </form>
 {% endblock %}
