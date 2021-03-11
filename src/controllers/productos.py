@@ -20,7 +20,7 @@ def crear_producto():
         return render_template('productos/crear.html')
 
     nombre = request.form.get('nombre')
-    descripcion = request.form.get('descripcion')
+    descricion = request.form.get('descricion')
     precio_compra = request.form.get('precio_compra')
     precio_venta = request.form.get('precio_venta')
     estado = request.form.get('estado')
@@ -32,8 +32,31 @@ def crear_producto():
       
     productosModel = ProductosModel()
 
-    productosModel.crear(nombre,descripcion,precio_compra,precio_venta,estado)
+    productosModel.crear(nombre,descricion,precio_compra,precio_venta,estado)
     
 
     #aca es la cracion del producto
+    return redirect(url_for('productos'))
+
+@app.route('/productos/editar/<int:id>', methods =['GET', 'POST'])
+def editar_producto(id):
+    if request.method == 'GET':
+       #mostramos el formulario de cracion
+        return render_template('productos/editar.html')
+
+    nombre = request.form.get('nombre')
+    descricion = request.form.get('descricion')
+    precio_compra = request.form.get('precio_compra')
+    precio_venta = request.form.get('precio_venta')
+    estado = request.form.get('estado')
+    
+    if estado == '1':
+        estado = 'Activo'
+    else:
+        estado = 'Inactivo'
+      
+    productosModel = ProductosModel()
+
+    productosModel.editar(id,nombre,descricion,precio_compra,precio_venta,estado)
+
     return redirect(url_for('productos'))
