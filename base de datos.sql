@@ -20,22 +20,26 @@ USE `flask_mvc`;
 CREATE TABLE IF NOT EXISTS `productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
-  `descripcion` varchar(255) NOT NULL,
-  `Precio_venta` float(8,2) NOT NULL DEFAULT 0.00,
-  `Precio_compra` float(8,2) NOT NULL DEFAULT 0.00,
-  `estado` text NOT NULL DEFAULT '',
+  `descricion` varchar(255) DEFAULT NULL,
+  `precio_venta` varchar(255) DEFAULT NULL,
+  `precio_compra` varchar(255) DEFAULT NULL,
+  `estado` enum('activo','inactivo') DEFAULT NULL,
+  `editar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla flask_mvc.productos: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla flask_mvc.productos: ~9 rows (aproximadamente)
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `Precio_venta`, `Precio_compra`, `estado`) VALUES
-	(38, 'leche', 'litro', 3000.00, 2800.00, 'activo'),
-	(39, 'arroz', 'kilo', 4000.00, 3800.00, 'inactivo'),
-	(40, 'avena', '500 ml', 2500.00, 2000.00, 'Activo'),
-	(41, 'avena', '500 ml', 2500.00, 2000.00, 'Activo'),
-	(42, 'galletas', 'ducales', 3800.00, 3500.00, 'Inactivo'),
-	(43, 'gaseosa', 'colombiana 1.5 lt', 3500.00, 3000.00, 'Activo');
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_venta`, `precio_compra`, `estado`, `editar`) VALUES
+	(1, 'Gaseosa', NULL, NULL, NULL, NULL, NULL),
+	(2, 'Leche', NULL, NULL, NULL, NULL, NULL),
+	(3, 'galletas', NULL, NULL, NULL, NULL, NULL),
+	(4, 'queso', NULL, NULL, NULL, NULL, NULL),
+	(5, 'yogurth', NULL, NULL, NULL, NULL, NULL),
+	(6, 'cuaderno', NULL, NULL, NULL, NULL, NULL),
+	(7, 'gato', NULL, NULL, NULL, NULL, NULL),
+	(8, 'hugo', 'hola', '300', '200', 'inactivo', NULL),
+	(9, 'lapiz', NULL, '2000', '500', 'activo', NULL);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

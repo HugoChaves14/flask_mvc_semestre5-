@@ -20,7 +20,7 @@ def crear_producto():
         return render_template('productos/crear.html')
 
     nombre = request.form.get('nombre')
-    descricion = request.form.get('descricion')
+    descripcion = request.form.get('descripcion')
     precio_compra = request.form.get('precio_compra')
     precio_venta = request.form.get('precio_venta')
     estado = request.form.get('estado')
@@ -32,7 +32,7 @@ def crear_producto():
       
     productosModel = ProductosModel()
 
-    productosModel.crear(nombre,descricion,precio_compra,precio_venta,estado)
+    productosModel.crear(nombre,descripcion,precio_compra,precio_venta,estado)
     
 
     #aca es la cracion del producto
@@ -45,7 +45,7 @@ def editar_producto(id):
         return render_template('productos/editar.html')
 
     nombre = request.form.get('nombre')
-    descricion = request.form.get('descricion')
+    descripcion = request.form.get('descripcion')
     precio_compra = request.form.get('precio_compra')
     precio_venta = request.form.get('precio_venta')
     estado = request.form.get('estado')
@@ -57,6 +57,6 @@ def editar_producto(id):
       
     productosModel = ProductosModel()
 
-    productosModel.editar(id,nombre,descricion,precio_compra,precio_venta,estado)
+    productosModel.editar(id,nombre,descripcion,precio_compra,precio_venta,estado)
 
     return redirect(url_for('productos'))
