@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} mostrarbd {% endblock %} 
+
+{% block contenido %}
+<h1>guia maria db</h1>
+<h2>ingrese los datos para validar</h2>
+<a href="{{ url_for('productos') }}">volver</a>
+
+
+"database": request.form.get('base_datos'),
+"host": request.form.get('host'),
+"port": int(request.form.get('puerto')),
+"user": request.form.get('usuario'),
+"password": request.form.get('contrasena'),
+}
+<form  method="POST">
+    <div class="mb-3">
+        <label for="database">base_datos</label>
+        <input type="text" required class="form-control" id="database" name="nombre">
+    </div>
+
+    <div class="mb-3">
+        <label for="descripcion">Descripcion</label>
+        <textarea rows="4" required class="form-control" 
+            id="descripcion" 
+            name="descrpicion"></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="precio_compra">Precio de compra</label>
+        <input type="number" required class="form-control" id="precio_compra" name="precio_compra">
+    </div>
+
+    <div class="mb-3">
+        <label for="precio_venta">Precio de venta</label>
+        <input type="number" required class="form-control" id="precio_venta" name="precio_venta">
+    </div>
+
+    <div class="mb-3">
+        <label for="ganancia">Ganancia (%)</label>
+        <input type="number" required class="form-control" id="ganancia" name="ganancia">
+    </div>
+
+    <div class="mb-3">
+        <label for="estado">Estado de producto</label>
+        <select class="form-select" required id="estado" name="estado">
+            <option selected value="">Selecione una opción</option>
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
